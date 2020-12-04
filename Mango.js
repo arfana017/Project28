@@ -5,7 +5,8 @@ class Mango {
         var options = {
             
             isStatic:true,
-           restitution:0
+           restitution:0,
+            friction: 1
 
         }
        this.image = loadImage("mango.png");
@@ -24,9 +25,9 @@ class Mango {
         push();
         translate(pos.x,pos.y);
         rotate(this.body.angle);
-        //rectMode(CENTER);
+        imageMode(CENTER);
+		ellipseMode(CENTER);
         image(this.image,0,0,this.diameter,this.diameter);
-        ellipseMode(CENTER);
         pop();
 
     }
