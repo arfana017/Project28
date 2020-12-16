@@ -1,19 +1,19 @@
 class Mango {
 
-    constructor(x,y,diameter) {
+    constructor(x,y,r) {
 
         var options = {
             
             isStatic:true,
            restitution:0,
-            friction: 1
+           friction:1
 
         }
        this.image = loadImage("mango.png");
        this.x = x;
        this.y = y;
-       this.diameter = diameter;
-       this.body = Bodies.circle(this.x,this.y,this.diameter/2,options); 
+       this.r = r;
+       this.body = Bodies.circle(this.x,this.y,this.r,options); 
 
         World.add(world, this.body);
 
@@ -25,9 +25,10 @@ class Mango {
         push();
         translate(pos.x,pos.y);
         rotate(this.body.angle);
+        //rectMode(CENTER);
         imageMode(CENTER);
 		ellipseMode(CENTER);
-        image(this.image,0,0,this.diameter,this.diameter);
+        image(this.image,0,0,this.r*2, this.r*2);
         pop();
 
     }
